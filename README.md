@@ -1,6 +1,7 @@
 Go Say Hello!
 ==============
-Live: [http://gosayhello-stujo.rhcloud.com/](http://gosayhello-stujo.rhcloud.com/)
+Openshift Live: [http://gosayhello-stujo.rhcloud.com/](http://gosayhello-stujo.rhcloud.com/)
+Heroku Live: [http://gosayhello.herokuapp.com/](http://gosayhello.herokuapp.com/)
 
 
 #Installation
@@ -61,6 +62,23 @@ And voila!
 
 ![Hello World][hello-world-screenshot.png]
 
+#Local File Paths
+
+After a bit of experimenting the layout that worked for me was to create the project folder
+under $GOLANG/src
+
+Specifically, matching the entire path specified in the .godir
+
+```github.com/stujo/gosayhello```
+
+to give a full project path of
+
+```/usr/local/var/go/src/github.com/stujo/gosayhello```
+
+or
+
+```$GOPATH/src/github.com/stujo/gosayhello```
+
 
 #Heroku
 
@@ -87,6 +105,34 @@ Deployment Failed:
 ##Set the buildpack
 
     heroku config:set BUILDPACK_URL=https://github.com/kr/heroku-buildpack-go.git
+
+##Not specifying the HOSTNAME on the port binding
+
+I found that I had to add code to NOT specify a hostname in the port binding on HEROKU,
+this is probably because I originally had HOST specified in the config. I added ON_HEROKU
+to detect heroku, so if you run into these issues, and are not trying to deploy to
+multiple platforms just change the code to not specify a HOST in any environment
+
+    $ heroku config
+    === gosayhello Config Vars
+    BUILDPACK_URL: https://github.com/kr/heroku-buildpack-go.git
+    ON_HEROKU:     1
+
+##Deploy again
+
+    2014-05-23T05:46:46.686083+00:00 app[web.1]: Starting Go Say Hello
+    2014-05-23T05:46:46.686086+00:00 app[web.1]: HOST ()
+    2014-05-23T05:46:46.686087+00:00 app[web.1]: PORT (5414)
+    2014-05-23T05:46:45.615447+00:00 heroku[web.1]: Starting process with command `gosayhello`
+    2014-05-23T05:46:47.379438+00:00 heroku[web.1]: State changed from starting to up
+
+yeay!
+
+
+#Openshift Deployment
+
+
+
 
 
 
