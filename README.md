@@ -131,8 +131,31 @@ yeay!
 
 #Openshift Deployment
 
+(I renamed my git remote for openshift from origin to openshift)
 
 
+    $ git push openshift master
+    Counting objects: 5, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 1011 bytes | 0 bytes/s, done.
+    Total 3 (delta 2), reused 0 (delta 0)
+    remote: Building git ref 'master', commit aa46cc8
+    remote:
+    remote: -----> Using Go 1.2.2
+    remote: -----> Running: go get -tags openshift ./...
+    remote: Preparing build for deployment
+    remote: Deployment id is edade3bb
+    remote: Activating deployment
+    remote:
+    remote: -------------------------
+    remote: Git Post-Receive Result: success
+    remote: Activation status: success
+    remote: Deployment completed with status: success
+    To ssh://537e8c40e0b8cd3eb80002e0@gosayhello-stujo.rhcloud.com/~/git/gosayhello.git/
+       091c90c..aa46cc8  master -> master
+
+yeay!
 
 
 
