@@ -17,7 +17,7 @@ type Greeting struct {
 }
 
 func heroku_binding() (hostname string, port string) {
-	hostname = os.Getenv("HOST")
+	hostname = ""
 	port = os.Getenv("PORT")
 	return
 }
@@ -30,7 +30,7 @@ func openshift_binding() (hostname string, port string) {
 
 
 func main() {
-	fmt.Printf("Starting Go Say Hello")
+	fmt.Println("Starting Go Say Hello")
 
 	http.HandleFunc("/", sayhello)
 
@@ -45,13 +45,13 @@ func main() {
 		}
 	}
 
-	fmt.Printf("HOST (%s)", hostname)
-	fmt.Printf("PORT (%s)", port)
+	fmt.Println("HOST (%s)", hostname)
+	fmt.Println("PORT (%s)", port)
 
 	//Using Default localhost
 	bind := fmt.Sprintf("%s:%s", hostname, port)
 
-	fmt.Printf("listening on %s...", bind)
+	fmt.Println("listening on %s...", bind)
 
 	err := http.ListenAndServe(bind, nil)
 
