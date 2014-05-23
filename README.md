@@ -1,3 +1,11 @@
+Go Say Hello!
+==============
+Live: [http://gosayhello-stujo.rhcloud.com/](http://gosayhello-stujo.rhcloud.com/)
+
+
+
+Original:
+
 OpenShift Go Cartridge
 ======================
 
@@ -5,13 +13,13 @@ Runs [Go](http://golang.org) on [OpenShift](https://openshift.redhat.com/app/log
 
 Once the app is created, you'll have a ".godir" file in the root of your repo. The single line is to tell the cartridge what the package of your Go code is.  A typical .godir file might contain:
 
-    github.com/smarterclayton/goexample
+    github.com/stujo/gosayhello
 
-which would tell OpenShift to place all of the files in the root of the Git repository inside of the <code>github.com/smarterclayton/goexample</code> package prior to compilation.
+which would tell OpenShift to place all of the files in the root of the Git repository inside of the <code>github.com/stujo/gosayhello</code> package prior to compilation.
 
 When you push code to the repo, the cart will compile your package into <code>$OPENSHIFT_REPO_DIR/bin/</code>, with the last segment of the .godir being the name of the executable.  For the above .godir, your executable will be:
 
-    $OPENSHIFT_REPO_DIR/bin/goexample
+    $OPENSHIFT_REPO_DIR/bin/gosayhello
 
 If you want to serve web requests (vs. running in the background), you'll need to listen on the ip address and port that OpenShift allocates - those are available as HOST and PORT in the environment.
 
