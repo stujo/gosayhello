@@ -3,6 +3,53 @@ Go Say Hello!
 Live: [http://gosayhello-stujo.rhcloud.com/](http://gosayhello-stujo.rhcloud.com/)
 
 
+#Installation
+==============
+
+##Via Home Brew
+
+    brew install go --cross-compile-common
+
+##Set up GOPATH
+
+I chose to create customized Terminal Window
+
+(GOPATH cannot start with ~)
+
+Shell runs ```. ~/goshell.sh``` when opened:
+
+    #!/bin/sh
+    export GOPATH="/usr/local/var/go"
+    cd ~/work/projects/go
+
+#Basic Modules
+It looks like go get uses mercurial, so I needed this
+
+    $ brew install mercurial
+
+Heroku Deployment needs this?
+
+    go get github.com/tools/godep
+
+##Check the Setup
+
+    $ which go
+    /usr/local/bin/go
+    $ go version
+    go version go1.2.2 darwin/amd64
+
+
+##Trying to run the app?
+
+    $ go run web.go
+    listening on :...panic: listen tcp: unknown port tcp/
+
+:(
+
+
+
+------------------------
+
 
 Original:
 
