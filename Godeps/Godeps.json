@@ -1,5 +1,5 @@
 {
-	"ImportPath": "gosayhello",
+	"ImportPath": "github.com/stujo/gosayhello",
 	"GoVersion": "go1.2.2",
 	"Deps": []
 }
