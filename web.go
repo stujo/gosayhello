@@ -18,5 +18,5 @@ func main() {
 }
 
 func hello(res http.ResponseWriter, req *http.Request) {
-	fmt.Fprintf(res, "hello, world from %s", runtime.Version())
+	fmt.Fprintf(res, "Stujo's Go app says 'Hello, world from runtime.Version(%s)'", runtime.Version())
 }
