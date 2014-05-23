@@ -30,7 +30,7 @@ func openshift_binding() (hostname string, port string) {
 
 
 func main() {
-	fmt.Println("Starting Go Say Hello")
+	fmt.Printf("\nStarting Go Say Hello")
 
 	http.HandleFunc("/", sayhello)
 
@@ -45,13 +45,13 @@ func main() {
 		}
 	}
 
-	fmt.Println("HOST (%s)", hostname)
-	fmt.Println("PORT (%s)", port)
+	fmt.Printf("\nHOST (%s)", hostname)
+	fmt.Printf("\nPORT (%s)", port)
 
 	//Using Default localhost
 	bind := fmt.Sprintf("%s:%s", hostname, port)
 
-	fmt.Println("listening on %s...", bind)
+	fmt.Printf("\nlistening on %s...", bind)
 
 	err := http.ListenAndServe(bind, nil)
 
