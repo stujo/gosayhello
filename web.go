@@ -17,15 +17,20 @@ type Greeting struct {
 }
 
 func main() {
+	fmt.Printf("Main")
 
 	http.HandleFunc("/", sayhello)
 
 	var hostname = "localhost"
 	var port = "3337"
 
+	fmt.Printf("HOST (%s)", os.Getenv("HOST"))
+
 	if os.Getenv("HOST") != "" {
 		hostname = os.Getenv("HOST")
 	}
+
+	fmt.Printf("PORT (%s)", os.Getenv("PORT"))
 
 	if os.Getenv("PORT") != "" {
 		port = os.Getenv("PORT")
