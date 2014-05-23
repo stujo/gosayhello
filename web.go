@@ -22,7 +22,7 @@ func heroku_binding() (hostname string, port string) {
 	return
 }
 
-func openshift_binding() (hostname string, port string) {
+func full_binding() (hostname string, port string) {
 	hostname = os.Getenv("HOST")
 	port = os.Getenv("PORT")
 	return
@@ -39,16 +39,13 @@ func main() {
 
 	if os.Getenv("ON_HEROKU") == "1" {
 		hostname, port = heroku_binding()
-	} else {
-		if os.Getenv("PORT") != "" {
-			hostname, port = openshift_binding()
-		}
+	} else if os.Getenv("PORT") != "" {
+		hostname, port = full_binding()
 	}
 
 	fmt.Printf("\nHOST (%s)", hostname)
 	fmt.Printf("\nPORT (%s)", port)
 
-	//Using Default localhost
 	bind := fmt.Sprintf("%s:%s", hostname, port)
 
 	fmt.Printf("\nlistening on %s...", bind)
