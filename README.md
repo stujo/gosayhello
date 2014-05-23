@@ -21,7 +21,7 @@ Shell runs ```. ~/goshell.sh``` when opened:
     #!/bin/sh
     export GOPATH="/usr/local/var/go"
     export PATH=$PATH:$GOPATH/bin
-    cd ~/work/projects/go
+    cd $GOPATH/src
 
 #Basic Modules
 It looks like go get uses mercurial, so I needed this
@@ -87,6 +87,7 @@ Deployment Failed:
 ##Set the buildpack
 
     heroku config:set BUILDPACK_URL=https://github.com/kr/heroku-buildpack-go.git
+
 
 
 
