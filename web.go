@@ -16,25 +16,37 @@ type Greeting struct {
 	Time    string
 }
 
+func heroku_binding() (hostname string, port string) {
+	hostname = os.Getenv("HOST")
+	port = os.Getenv("PORT")
+	return
+}
+
+func openshift_binding() (hostname string, port string) {
+	hostname = os.Getenv("HOST")
+	port = os.Getenv("PORT")
+	return
+}
+
+
 func main() {
-	fmt.Printf("Main")
+	fmt.Printf("Starting Go Say Hello")
 
 	http.HandleFunc("/", sayhello)
 
 	var hostname = "localhost"
 	var port = "3337"
 
-	fmt.Printf("HOST (%s)", os.Getenv("HOST"))
-
-	if os.Getenv("HOST") != "" {
-		hostname = os.Getenv("HOST")
+	if os.Getenv("ON_HEROKU") == "1" {
+		hostname, port = heroku_binding()
+	} else {
+		if os.Getenv("PORT") != "" {
+			hostname, port = openshift_binding()
+		}
 	}
 
-	fmt.Printf("PORT (%s)", os.Getenv("PORT"))
-
-	if os.Getenv("PORT") != "" {
-		port = os.Getenv("PORT")
-	}
+	fmt.Printf("HOST (%s)", hostname)
+	fmt.Printf("PORT (%s)", port)
 
 	//Using Default localhost
 	bind := fmt.Sprintf("%s:%s", hostname, port)
