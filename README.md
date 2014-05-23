@@ -20,6 +20,7 @@ Shell runs ```. ~/goshell.sh``` when opened:
 
     #!/bin/sh
     export GOPATH="/usr/local/var/go"
+    export PATH=$PATH:$GOPATH/bin
     cd ~/work/projects/go
 
 #Basic Modules
