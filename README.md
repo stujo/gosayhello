@@ -47,6 +47,20 @@ Heroku Deployment needs this?
 
 :(
 
+##Ahhh Environment Variables
+
+The code is setup to run on openshift where PORT and HOST are defined in the environment
+
+    export PORT=3337
+    export HOST=localhost
+
+And voila!
+
+    $ go run web.go 
+    listening on localhost:3337...
+
+![Hello World][hello-world-screenshot.png]
+
 
 
 ------------------------
