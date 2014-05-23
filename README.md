@@ -62,6 +62,33 @@ And voila!
 ![Hello World][hello-world-screenshot.png]
 
 
+#Heroku
+
+Deployment Failed:
+
+    Warning: Permanently added 'heroku.com,50.19.85.156' (RSA) to the list of known hosts.
+    Initializing repository, done.
+    Counting objects: 33, done.
+    Delta compression using up to 32 threads.
+    Compressing objects: 100% (27/27), done.
+    Writing objects: 100% (33/33), 1.69 MiB | 0 bytes/s, done.
+    Total 33 (delta 11), reused 0 (delta 0)
+
+     !     Push rejected, no Cedar-supported app detected
+    To git@heroku.com:gosayhello.git
+     ! [remote rejected] 0470adb8cb56b62754fca2d06e8551e66cfae812 -> master (pre-receive hook declined)
+    error: failed to push some refs to 'git@heroku.com:gosayhello.git'
+
+
+##Connect the app
+
+    heroku git:remote -a gosayhello
+
+##Set the buildpack
+
+    heroku config:set BUILDPACK_URL=https://github.com/kr/heroku-buildpack-go.git
+
+
 
 ------------------------
 
