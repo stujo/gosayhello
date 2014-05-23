@@ -23,11 +23,11 @@ func main() {
 	var hostname = "localhost"
 	var port = "3337"
 
-	if os.Getenv("HOST") == "" {
+	if os.Getenv("HOST") != "" {
 		hostname = os.Getenv("HOST")
 	}
 
-	if os.Getenv("PORT") == "" {
+	if os.Getenv("PORT") != "" {
 		port = os.Getenv("PORT")
 	}
 
